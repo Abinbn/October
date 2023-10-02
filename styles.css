@@ -489,9 +489,14 @@
 
     
     .sponsor_card {
-        float: none; 
-        margin: 30px 5px; 
+       display: none;
+       visibility: collapse; 
 
+   }
+
+   footer{
+    text-align: center;
+    margin: auto;
    }
 }
 
