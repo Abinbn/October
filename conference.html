@@ -2,7 +2,8 @@
 <html lang="en, ml">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="description" content="Join Asia's Biggest Student Conference organized by E-schoolbooks.in. Explore student seminars, workshops, and networking opportunities through and totaly FREE.">
+
     
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -365,6 +366,25 @@
             })
         })
 
+
+
+        if (!window.crossOriginIsolated) {
+  console.log('performance.measureUserAgentSpecificMemory() is only available in cross-origin-isolated pages');
+} else if (!performance.measureUserAgentSpecificMemory) {
+  console.log('performance.measureUserAgentSpecificMemory() is not available in this browser');
+} else {
+  let result;
+  try {
+    result = await performance.measureUserAgentSpecificMemory();
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'SecurityError') {
+      console.log('The context is not secure.');
+    } else {
+      throw error;
+    }
+  }
+  console.log(result);
+}
     </script>
 </body>
 </html>
