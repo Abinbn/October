@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /private/
+Disallow: /restricted/
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /logs/
+Disallow: /scripts/
+Disallow: /styles/
+Disallow: /pdfs/
+
+Allow: /images/
+Allow: /public/
+Allow: /events/
