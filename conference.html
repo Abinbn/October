@@ -11,7 +11,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script rel="preload" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
@@ -108,7 +108,7 @@
     
     
     <title>E-schoolbook's Campaign</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" rel="preload" href="styles.css" as="style" />
 
     
 
@@ -214,13 +214,13 @@
         <p>Unlocking Global Education : <br> Join the E Schoolbooks International Conference and find your true potential! </p>
       </aside>
       <aside class="importance-text right">
-        <img src="education.svg" rel="preload" loading="lazy" />
+        <img src="education.svg" rel="preload" loading="lazy" alt="A animation of a boy floating besides a nuclear bulb"/>
         <!-- Important text  and image here!-->
       </aside>
     </section>
     <section class="importance-section">
       <div class="importance-text left">
-        <img src="ed.svg" rel="preload" alt="Education Image" loading="lazy"/>
+        <img src="ed.svg" rel="preload" alt="Education Image" loading="lazy" aria-multiline="A book with titled eduaction and a scholorship hat on it , in foreground some students are sitting on and beside books"/>
       </div>
       <div class="importance-text right">
         <h3>Global Impact</h3>
@@ -240,7 +240,7 @@
         <p>Learn from their experiences and gain valuable insights into the future of accessible learning materials.</p>
       </div>
       <div class="importance-text left">
-        <img src="book.svg" rel="preload" loading="lazy" alt="Book Image" />
+        <img src="book.svg" rel="preload" loading="lazy" alt="Image of a book, coffee cup with a green blob background" />
       </div>
     </section>
     <br><br>
@@ -249,7 +249,7 @@
     <a href="https://forms.gle/CDjUw2JM5aBPdAdu7">
       <div class="clearfix">
         <div class="sponsor_card">
-          <img src="https://api.iconify.design/vaadin:cash.svg?color=%232ac200" width="150px" height="100px"/>
+          <img src="https://api.iconify.design/vaadin:cash.svg?color=%232ac200" width="150px" height="100px" alt="Emoji of Cash in green color"/>
           <br>
           <h1>
             Be the Event Sponsor
@@ -287,7 +287,7 @@
 <!--footer-->
 <footer>
 <div class="footer-left">
-<img src="img/esblogo.svg" rel="preload" alt="E School Books Logo" class="esblogo" href="https://e-schoolbooks.in/" target="_blank">
+<img src="img/esblogo.svg" rel="preload" alt="E SchoolBooks Logo" class="esblogo" href="https://e-schoolbooks.in/" target="_blank">
 <p style="color:#fe3456; font-weight: 600;">E School Books.in</p>
 			<p>Kundara, Kollam, Kerala</p>
 <p>691501</p>
@@ -368,23 +368,21 @@
 
 
 
-        if (!window.crossOriginIsolated) {
-  console.log('performance.measureUserAgentSpecificMemory() is only available in cross-origin-isolated pages');
-} else if (!performance.measureUserAgentSpecificMemory) {
-  console.log('performance.measureUserAgentSpecificMemory() is not available in this browser');
+
+        if ('performance' in window && 'memory' in performance) {
+  // Access the performance.memory object
+  const memoryInfo = performance.memory;
+
+  // Memory information
+  console.log('Total memory used (JS heap):', memoryInfo.usedJSHeapSize);
+  console.log('Total memory available (JS heap):', memoryInfo.totalJSHeapSize);
+  console.log('Peak memory used (JS heap):', memoryInfo.jsHeapSizeLimit);
 } else {
-  let result;
-  try {
-    result = await performance.measureUserAgentSpecificMemory();
-  } catch (error) {
-    if (error instanceof DOMException && error.name === 'SecurityError') {
-      console.log('The context is not secure.');
-    } else {
-      throw error;
-    }
-  }
-  console.log(result);
+  console.error('Memory measurement is not supported in this browser.');
 }
+
+
+
     </script>
 </body>
 </html>
