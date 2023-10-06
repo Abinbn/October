@@ -183,7 +183,7 @@
     <section class="importance-section">
       <div>
         <aside class="importance-text left">
-        <p>Unlocking Global Education : <br> Join the E Schoolbooks International Conference and find your true potential! </p>
+        <p>Unlocking Global Education :  Join the <br><b>E Schoolbooks </b><br> International Conference and find your true potential from great educational experts </p>
       </aside>
     </div>
       <aside class="importance-text right">
@@ -237,10 +237,27 @@
             <option value="Working" name="entry.1734916806">Working</option>
           </select>
         </div>
+
+        <!-- Student Drop down -->
+        <div id="student-data" style="display: visible;">
+          <label
+          for="class">Specify the class
+        </label>
+        <input type="text"
+        id="additional-info"
+        name="entry.1665295967"
+        placeholder="1st, 2nd, 3rd ... 10th"
+        autocomplete="off">
+        </div>
+        <!-- Student Drop down -->
+
+        <!-- Work Dropdown -->
         <div id="working-profession" style="display: none;">
           <label for="additional-profession">Specify Profession:</label>
           <input type="text" id="additional-profession" name="entry.1115189613" placeholder="CEO, Designer, teacher, etc" autocomplete="work">
         </div>
+        <!-- Work Dropdown -->
+
         <label for="comment">Comment:</label>
         <textarea id="comment" name="entry.840157352" required></textarea autocomplete="off">
 
@@ -330,15 +347,25 @@
     </div>
   
 <script>
-        document.getElementById('profession').addEventListener('change', function () {
-            var workingProfession = document.getElementById('working-profession');
-            if (this.value === 'Working') {
-                workingProfession.style.display = 'block';
-            } else {
-                workingProfession.style.display = 'none';
-            }
-        });
-        
+
+document.getElementById('profession').addEventListener('change', function () {
+  var workingProfession = document.getElementById('working-profession');
+  var studentData = document.getElementById('student-data');
+
+  if (this.value === 'Working') {
+    workingProfession.style.display = 'block';
+    studentData.style.display = 'none';
+  } else if (this.value === 'Student') {
+    workingProfession.style.display = 'none';
+    studentData.style.display = 'block';
+  } else {
+    workingProfession.style.display = 'none';
+    studentData.style.display = 'none';
+  }
+});
+
+
+
  $("#submit-form").submit((e)=>{
             e.preventDefault()
             $.ajax({
